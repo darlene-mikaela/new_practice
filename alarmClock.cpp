@@ -2,23 +2,15 @@
 using namespace std;
 
 int main() {
-    int h1 = 1; int m1 = 1; int h2 = 1; int m2 = 1;
+    int h1,m1,h2,m2;
     int time;
 
-    do {
-        cin >> h1 >> m1 >> h2 >> m2;
+    while (cin >> h1 >> m1 >> h2 >> m2) {
+        if (h1==0 && h2==0 && m1==0 && m2==0) { break; }
         time = (h2-h1)*60 + (m2-m1);
-        if (time < 0) {
-            if (h2<h1) {
-                time = (24-h1+h2)*60 + (m2-m1);
-            } else if (h2==h1) {
-                time = 24*60 + (m2-m1);
-            }
-        } else if (time == 0) {
-            break;
-        }
+        time = (time<0?time+1440:time); // +24 hours
         cout << time << endl;
-    } while (true);
+    }
 
     return 0;
 }
