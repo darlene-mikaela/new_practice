@@ -16,32 +16,24 @@ int main() {
     else if (seatNumber > 2500) { zone = 2; }
     else { zone = 1; }
 
-    // find number of seats at row
-    int place;
-    if (zone==1 || zone==3) { place = (seatNumber%25)?seatNumber%25:25; }
-    else if (zone==2) { place = (seatNumber%50)?seatNumber%50:50; }
-
     // determine row
     int row = 0;
     if (zone == 1) { 
-        while (seatNumber>0) {
-            seatNumber -= 25;
-            row++;
-        }
+        row = (seatNumber-1)/25 + 1;
     }
     else if (zone == 2) {
         seatNumber -= 2500;
-        while (seatNumber>0) {
-            seatNumber -= 50;
-            row++;
-        }
+        row = (seatNumber-1)/50 + 1;
     } else {
         seatNumber -= 7500;
-        while (seatNumber>0) {
-            seatNumber -= 25;
-            row++;
-        }
+        row = (seatNumber-1)/25 + 1;
     }
+
+    // find number of seats at row
+    int place;
+    if (zone==1 || zone==3) place = (seatNumber%25)?seatNumber%25:25;
+    else if (zone==2) place = (seatNumber%50)?seatNumber%50:50;
+
 
     cout << zone << " " << row << " " << place << endl;
 
