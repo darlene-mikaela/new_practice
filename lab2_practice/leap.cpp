@@ -6,9 +6,13 @@ int main() {
     cin >> year;
 
     if (year%4==0) {
-        if (year%100!=0) { cout << "a leap year" << endl; }
-        else if (year%100==0 and year%400==0) { cout << "a leap year" << endl; }
-        else { cout << "a normal year" << endl; }
+        if (year%100!=0) {
+            cout << "a leap year" << endl;
+        } else if (year%100==0 and year%400==0) {
+            cout << "a leap year" << endl;
+        } else {
+            cout << "a normal year" << endl;
+        }
     } else {
         cout << "a normal year" << endl;
     }
